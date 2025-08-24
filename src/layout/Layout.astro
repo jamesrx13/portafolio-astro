@@ -1,0 +1,35 @@
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>James Rudas | Desarrollador Fullstack</title>
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>
+
+<style is:global>
+
+    @font-face {
+        font-family: "SpaceMono";
+        src: url("/fonts/Space_Mono/SpaceMono-Regular.ttf") format("truetype");
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: "SpaceMono", sans-serif;
+        box-sizing: border-box;
+    }
+
+    html{
+        scroll-behavior: smooth !important;
+    }
+
+    body {
+        background-color: black;
+    }
+</style>
