@@ -166,9 +166,15 @@ nav {
 /* GENERICO PARA SECCIONES */
 section {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     max-width: 100vw;
     position: relative;
+}
+
+section:not(.principal) {    
+    @media screen and (max-width: 1000px) {
+        margin-bottom: 3rem;
+    }
 }
 
 .btn {
@@ -188,6 +194,70 @@ section {
         background: var(--main-color);
         color: white;
     }
+}
+
+h2.tittle {
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    background: linear-gradient(90deg, var(--main-color), white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+h3.subtittle {
+    font-size: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 5px;
+    padding: 1rem;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+    span {
+        font-size: 1rem;
+        color: var(--main-color);
+    }
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .img-with-text{
+        width: 220px;
+        height: 170px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+
+        svg {
+            width: 100%;
+        }
+
+        span {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    }
+
 }
 
 /* PRINCIPAL */
@@ -246,6 +316,7 @@ section.principal {
 
 }
 
+/* SOBRE MI */
 section.sobre-mi {
     display: flex;
     gap: 2rem;
@@ -253,12 +324,35 @@ section.sobre-mi {
     align-items: center;
     justify-content: center;
 
-    p {
-        font-size: 1.2rem;
-        line-height: 1.5;
-        color: white;
+    .information{
         max-width: 600px;
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            color: white;
+        }
+
+        .aditional-info{
+            margin-top: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            justify-content: space-around;
+
+            span {
+                text-align: center;
+                font-size: 1.2rem;
+                color: white;
+                font-weight: bold;
+                b {
+                    color: var(--main-color);
+                }
+            }
+        }
+
     }
+
 
     .image {
         position: relative;
@@ -313,6 +407,90 @@ section.sobre-mi {
         .image {
             height: 40vh;
             max-width: 300px;
+        }
+    }
+
+}
+
+/* ESTUDIOS Y EXPERIENCIA */
+section.estudios-experiencia {
+    
+    .list {
+        display: flex;
+        gap: 1rem;
+        padding: 1.2rem;
+        justify-content: center;
+
+        .academicas{
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .experiencia{
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media screen and (max-width: 1000px) {
+            flex-direction: column;
+            align-items: center;
+
+            .academicas, .experiencia {
+                width: 90%;
+            }
+            
+        }
+
+    }
+
+}
+
+/* HERRAMIENTAS */
+section.herramientas{
+
+    .cards-list{
+        display: flex;
+        gap: 1rem;
+        padding: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    @media screen and (max-width: 1000px) {
+        padding-top: 3rem;
+    }
+}
+
+/* FOOTER */
+.footer {
+    width: 100%;
+    padding: 1rem;
+    background: black;
+    text-align: center;
+    color: white;
+    font-size: 0.9rem;
+
+    p {
+        margin: 0;
+        svg {
+            width: 20px;
+            height: auto;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+    }
+
+    .social-media{
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-bottom: 1rem;
+
+        a {
+            width: 30px;
         }
     }
 
