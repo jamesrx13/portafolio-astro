@@ -5,6 +5,52 @@
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>James Rudas | Desarrollador Fullstack</title>
+
+        <meta
+            name="description"
+            content="Portafolio profesional de James Rudas, Ingeniero de Sistemas especializado en desarrollo backend, frontend y liderazgo de proyectos tecnológicos."
+        />
+        <meta
+            name="keywords"
+            content="James Rudas, Ingeniero de Sistemas, desarrollador web, desarrollador móvil, portafolio, programación, software"
+        />
+        <meta name="author" content="James Rudas" />
+
+        <meta
+            property="og:title"
+            content="James Rudas - Ingeniero de Sistemas"
+        />
+        <meta
+            property="og:description"
+            content="Desarrollador web y móvil con experiencia en múltiples tecnologías."
+        />
+        <meta
+            property="og:image"
+            content="https://jamesrudas.com/images/me.jpg"
+        />
+        <meta property="og:url" content="https://jamesrudas.com/" />
+        <meta property="og:type" content="website" />
+
+        <link rel="icon" href="https://jamesrudas.com/images/me.jpg" />
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "James Rudas",
+                "url": "https://jamesrudas.com",
+                "image": "https://jamesrudas.com/images/me.jpg",
+                "sameAs": [
+                    "https://www.linkedin.com/in/james-ferney-rudas-mar%C3%ADn-520356180/",
+                    "https://github.com/jamesrx13"
+                ],
+                "jobTitle": "Ingeniero de Sistemas",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Freelance / Autónomo / Independiente"
+                }
+            }
+        </script>
     </head>
     <body>
         <slot />
@@ -12,7 +58,6 @@
 </html>
 
 <style is:global>
-
     @font-face {
         font-family: "SpaceMono";
         src: url("/fonts/Space_Mono/SpaceMono-Regular.ttf") format("truetype");
@@ -25,7 +70,7 @@
         box-sizing: border-box;
     }
 
-    html{
+    html {
         scroll-behavior: smooth !important;
     }
 
