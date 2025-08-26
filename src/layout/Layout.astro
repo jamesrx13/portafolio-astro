@@ -71,6 +71,23 @@
 
     html {
         scroll-behavior: smooth !important;
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background: linear-gradient(to bottom, #0077b6, #00b4d8);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #0077b6, #00b4d8);
+        }
     }
 
     body {

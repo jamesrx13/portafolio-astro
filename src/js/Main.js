@@ -7,11 +7,11 @@ const roles = [
     "Diseñador Web",
 ];
 
-let i = 0;      
-let j = 0;     
+let i = 0;
+let j = 0;
 let deleting = false;
-const speed = 100;   
-const pause = 1500; 
+const speed = 100;
+const pause = 1500;
 
 // FUNCIONES
 const onScroll = () => {
@@ -24,7 +24,7 @@ const onScroll = () => {
         nav.addEventListener("animationend", () => {
 
             nav.classList.remove("onScroll");
-            if(nav.querySelector("ul").classList.contains("open")) return;
+            if (nav.querySelector("ul").classList.contains("open")) return;
             nav.classList.add("scrolled");
 
         });
@@ -81,7 +81,7 @@ const toggleMenu = () => {
         nav.classList.remove("scrolled");
         menu.classList.add("open");
     });
-    
+
     menu.querySelectorAll("li").forEach(item => {
 
         item.addEventListener("click", () => {
@@ -103,11 +103,38 @@ const toggleMenu = () => {
 
 }
 
+const progressAnimation = () => {
+    const progress = document.querySelectorAll(".progress");
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const percentage = entry.target.getAttribute("data-value");
+                entry.target.style.width = `${percentage}%`;
+                entry.target.addEventListener('transitionend', () => {
+                    entry.target.innerHTML = `<span>${percentage}%</span>`;
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+
+    }, {
+        threshold: 0.2
+    });
+
+    progress.forEach(element => {
+        observer.observe(element)
+    });
+
+}
+
 // EVENTOS
 document.addEventListener("scroll", onScroll);
 
 document.addEventListener("DOMContentLoaded", () => {
     typeEffect();
     toggleMenu();
+    progressAnimation();
     onScroll(); // Se añade para que al recargar la página en una posición diferente a la inicial
 });

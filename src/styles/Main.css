@@ -171,7 +171,7 @@ section {
     position: relative;
 }
 
-section:not(.principal) {    
+section:not(.principal) {
     @media screen and (max-width: 1000px) {
         margin-bottom: 3rem;
     }
@@ -215,6 +215,12 @@ h3.subtittle {
     color: white;
 }
 
+.animateInside {
+    animation: onInside 1s ease forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
 .card {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
@@ -227,7 +233,11 @@ h3.subtittle {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    
+
+    animation: onInside 1s ease forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+
     span {
         font-size: 1rem;
         color: var(--main-color);
@@ -238,7 +248,7 @@ h3.subtittle {
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     }
 
-    .img-with-text{
+    .img-with-text {
         width: 220px;
         height: 170px;
         display: flex;
@@ -258,6 +268,66 @@ h3.subtittle {
         }
     }
 
+    .text-with-percent {
+        width: 300px;
+
+        .head {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+
+            svg {
+                width: 30px;
+                height: auto;
+            }
+        }
+
+        .progress {
+            position: relative;
+            background-color: red;
+            border-radius: 10px;
+            height: 20px;
+            display: grid;
+            place-content: center;
+            width: 0;
+            transition: width 1s ease-in-out;
+            background: linear-gradient(90deg, var(--main-color), var(--secondary-color));
+
+            span {
+                color: white;
+                animation: onInsidePercent .3s ease-in-out;
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                border-radius: 10px;
+                appearance: none;
+                width: 300px;
+                height: 20px;
+                overflow: hidden;
+                border: none;
+                background: #eee;
+                position: absolute;
+                z-index: -1;
+                top: 0;
+                left: 0;
+            }
+
+        }
+
+
+    }
+
+}
+
+.cards-list {
+    display: flex;
+    gap: 1rem;
+    padding: 1.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* PRINCIPAL */
@@ -324,7 +394,7 @@ section.sobre-mi {
     align-items: center;
     justify-content: center;
 
-    .information{
+    .information {
         max-width: 600px;
 
         p {
@@ -333,7 +403,7 @@ section.sobre-mi {
             color: white;
         }
 
-        .aditional-info{
+        .aditional-info {
             margin-top: 2rem;
             display: flex;
             gap: 2rem;
@@ -345,6 +415,7 @@ section.sobre-mi {
                 font-size: 1.2rem;
                 color: white;
                 font-weight: bold;
+
                 b {
                     color: var(--main-color);
                 }
@@ -414,20 +485,21 @@ section.sobre-mi {
 
 /* ESTUDIOS Y EXPERIENCIA */
 section.estudios-experiencia {
-    
+
     .list {
         display: flex;
         gap: 1rem;
         padding: 1.2rem;
         justify-content: center;
 
-        .academicas{
+        .academicas {
             width: 40%;
             display: flex;
             flex-direction: column;
             gap: 1rem;
         }
-        .experiencia{
+
+        .experiencia {
             width: 40%;
             display: flex;
             flex-direction: column;
@@ -438,10 +510,11 @@ section.estudios-experiencia {
             flex-direction: column;
             align-items: center;
 
-            .academicas, .experiencia {
+            .academicas,
+            .experiencia {
                 width: 90%;
             }
-            
+
         }
 
     }
@@ -449,20 +522,14 @@ section.estudios-experiencia {
 }
 
 /* HERRAMIENTAS */
-section.herramientas{
-
-    .cards-list{
-        display: flex;
-        gap: 1rem;
-        padding: 1.2rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
+section.herramientas {
     @media screen and (max-width: 1000px) {
         padding-top: 3rem;
     }
 }
+
+/* HABILIDADES */
+/* section.habilidades {} */
 
 /* FOOTER */
 .footer {
@@ -475,6 +542,7 @@ section.herramientas{
 
     p {
         margin: 0;
+
         svg {
             width: 20px;
             height: auto;
@@ -483,7 +551,7 @@ section.herramientas{
         }
     }
 
-    .social-media{
+    .social-media {
         display: flex;
         gap: 1rem;
         justify-content: center;
@@ -562,5 +630,29 @@ section.herramientas{
 
     100% {
         background-position: 0% 50%;
+    }
+}
+
+@keyframes onInsidePercent {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes onInside {
+    0% {
+        opacity: 0;
+        transform: translateY(300px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
