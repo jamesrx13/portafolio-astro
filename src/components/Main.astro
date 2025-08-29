@@ -1,6 +1,31 @@
 ---
 import "@styles/Main.css";
 
+import Html from "../icons/Html.astro";
+import Css from "../icons/Css.astro";
+import VsCode from "../icons/VsCode.astro";
+import Git from "../icons/Git.astro";
+import N8n from "../icons/N8n.astro";
+import Docker from "../icons/Docker.astro";
+import Dokploy from "../icons/Dokploy.astro";
+import GitHub from "../icons/GitHub.astro";
+import Linkedin from "../icons/Linkedin.astro";
+import JavaScript from "../icons/JavaScript.astro";
+import TypeScript from "../icons/TypeScript.astro";
+import Dart from "../icons/Dart.astro";
+import Flutter from "../icons/Flutter.astro";
+import Php from "../icons/Php.astro";
+import Python from "../icons/Python.astro";
+import Sql from "../icons/Sql.astro";
+import Firebase from "../icons/Firebase.astro";
+import MongoDb from "../icons/MongoDb.astro";
+import Laravel from "../icons/Laravel.astro";
+import Symfony from "../icons/Symfony.astro";
+import Tailwind from "../icons/Tailwind.astro";
+import React from "../icons/React.astro";
+import Nestjs from "../icons/Nestjs.astro";
+import Angular from "../icons/Angular.astro";
+
 const currentYear = new Date().getFullYear();
 const yearsOfExperience = (currentYear - 2021).toString();
 ---
@@ -32,8 +57,8 @@ const yearsOfExperience = (currentYear - 2021).toString();
         <li><a href="#estudios-experiencia">Estudios y experiencia</a></li>
         <li><a href="#herramientas">Herramientas</a></li>
         <li><a href="#habilidades">Habilidades</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#clientes">Clientes</a></li>
+        <!-- <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#clientes">Clientes</a></li> -->
         <li><a href="#contacto">Contacto</a></li>
     </ul>
 
@@ -107,7 +132,6 @@ const yearsOfExperience = (currentYear - 2021).toString();
 
 <!-- SOBRE MI -->
 <section class="sobre-mi" id="sobre-mi">
-
     <div class="image animateInside">
         <img src="images/me.jpg" alt="Imagen de perfil" />
     </div>
@@ -184,155 +208,35 @@ const yearsOfExperience = (currentYear - 2021).toString();
     <div class="cards-list">
         <div class="card">
             <div class="img-with-text">
-                <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    stroke="#ffffff"
-                    ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-                        id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
-                        <path
-                            d="M0.228341 8.36915C0.228341 8.36915 -0.356212 7.94324 0.345251 7.37453L1.97956 5.89736C1.97956 5.89736 2.44721 5.40004 2.94164 5.83334L18.0231 17.375V22.9094C18.0231 22.9094 18.0158 23.7785 16.9124 23.6825L0.228341 8.36915Z"
-                            fill="#ffffff"></path>
-                        <path
-                            d="M4.11555 11.9367L0.228273 15.5089C0.228273 15.5089 -0.171172 15.8093 0.228273 16.346L2.03308 18.0053C2.03308 18.0053 2.46175 18.4706 3.09502 17.9413L7.21611 14.7827L4.11555 11.9367Z"
-                            fill="#ffffff"></path>
-                        <path
-                            d="M10.94 11.9661L18.0691 6.46362L18.0228 0.95865C18.0228 0.95865 17.7183 -0.242793 16.7027 0.382548L7.21589 9.11025L10.94 11.9661Z"
-                            fill="#ffffff"></path>
-                        <path
-                            d="M16.9121 23.69C17.3261 24.1183 17.8279 23.978 17.8279 23.978L23.3838 21.2108C24.0951 20.7208 23.9952 20.1127 23.9952 20.1127V3.58803C23.9952 2.86175 23.2596 2.61063 23.2596 2.61063L18.4441 0.264377C17.3919 -0.392968 16.7027 0.382548 16.7027 0.382548C16.7027 0.382548 17.5892 -0.262484 18.0228 0.95865L18.0228 22.8086C18.0228 22.9588 17.9911 23.1065 17.9278 23.2394C17.8011 23.4979 17.5259 23.7392 16.8658 23.6383L16.9121 23.69Z"
-                            fill="#ffffff"></path>
-                    </g></svg
-                >
+                <VsCode />
                 <span>Visual Studio Code</span>
             </div>
         </div>
 
         <div class="card">
             <div class="img-with-text">
-                <svg
-                    viewBox="0 0 48 48"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="#ffffff"
-                    stroke="#ffffff"
-                    ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-                        id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"
-                        ><defs
-                            ><style>
-                                .a {
-                                    fill: none;
-                                    stroke: #ffffff;
-                                    stroke-linecap: round;
-                                    stroke-linejoin: round;
-                                }
-                            </style></defs
-                        ><path
-                            class="a"
-                            d="M4.21,22.12a2.87,2.87,0,0,0,0,3.77L22.12,43.8a2.87,2.87,0,0,0,3.77,0l17.9-17.91a2.85,2.85,0,0,0,0-3.77L25.89,4.21A2.68,2.68,0,0,0,24,3.51h0a2.66,2.66,0,0,0-1.88.71Z"
-                        ></path><line
-                            class="a"
-                            x1="26.33"
-                            y1="17.85"
-                            x2="30.15"
-                            y2="21.67"></line><line
-                            class="a"
-                            x1="17.4"
-                            y1="8.92"
-                            x2="21.67"
-                            y2="13.19"></line><circle
-                            class="a"
-                            cx="24"
-                            cy="32.41"
-                            r="3.3"></circle><circle
-                            class="a"
-                            cx="24"
-                            cy="15.52"
-                            r="3.3"></circle><circle
-                            class="a"
-                            cx="32.48"
-                            cy="24"
-                            r="3.3"></circle><line
-                            class="a"
-                            x1="24"
-                            y1="29.11"
-                            x2="24"
-                            y2="18.82"></line></g
-                    ></svg
-                >
+                <Git />
                 <span>Git</span>
             </div>
         </div>
 
         <div class="card">
             <div class="img-with-text">
-                <svg
-                    width="201px"
-                    height="201px"
-                    viewBox="-0.64 -0.64 17.28 17.28"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    stroke="#ffffff"
-                    stroke-width="0.08"
-                    ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-                        id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke="#CCCCCC"
-                        stroke-width="0.032"></g><g id="SVGRepo_iconCarrier">
-                        <path
-                            fill-rule="nonzero"
-                            clip-rule="nonzero"
-                            d="M5.46619 2.00322C5.46619 1.44916 5.91535 1 6.46941 1H9.47907C10.0331 1 10.4823 1.44915 10.4823 2.00322V5.01288C10.4823 5.09948 10.4713 5.18352 10.4507 5.26368C10.4713 5.34385 10.4823 5.42789 10.4823 5.51449V8.02254H11.7363V6.0161C11.7363 5.60055 12.0732 5.26368 12.4887 5.26368C12.9043 5.26368 13.2411 5.60055 13.2411 6.0161V8.02254H15.2476C15.6631 8.02254 16 8.35941 16 8.77495C16 9.1905 15.6631 9.52737 15.2476 9.52737H13.2113C13.0634 11.3518 12.3727 12.8078 11.2779 13.8375C10.045 14.9972 8.37374 15.5467 6.59481 15.5467C4.97058 15.5467 3.43674 15.0891 2.24224 14.1255C1.03896 13.1549 0.236443 11.7155 0.0125343 9.86728C-0.115917 8.80699 0.763545 8.02254 1.70412 8.02254H1.95492V5.51449C1.95492 4.96043 2.40408 4.51127 2.95814 4.51127H5.46619V2.00322ZM5.46619 6.0161H3.45975V8.02254H5.46619V6.0161ZM1.70412 9.52737C1.63196 9.52737 1.57447 9.55683 1.54064 9.59191C1.51066 9.62299 1.50235 9.65252 1.50644 9.68629C1.68777 11.1831 2.31696 12.2524 3.18705 12.9543C4.06593 13.6632 5.24713 14.0419 6.59481 14.0419C8.071 14.0419 9.34667 13.5882 10.2469 12.7414C11.0115 12.0222 11.5598 10.9686 11.7007 9.52737H1.70412ZM6.97102 8.02254H8.97746V6.0161H6.97102V8.02254ZM6.97102 4.51127H8.97746V2.50483H6.97102V4.51127Z"
-                            fill="#ffffff"></path>
-                    </g></svg
-                >
+                <Docker />
                 <span>Docker</span>
             </div>
         </div>
 
         <div class="card">
             <div class="img-with-text">
-                <svg
-                    fill="#ffffff"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    stroke="#ffffff"
-                    stroke-width="0.144"
-                    ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-                        id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"
-                        ><path
-                            d="M14,9H10a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V10A1,1,0,0,0,14,9Zm-1,4H11V11h2Zm8,0a1,1,0,0,0,0-2H19V9h2a1,1,0,0,0,0-2H18.82A3,3,0,0,0,17,5.18V3a1,1,0,0,0-2,0V5H13V3a1,1,0,0,0-2,0V5H9V3A1,1,0,0,0,7,3V5.18A3,3,0,0,0,5.18,7H3A1,1,0,0,0,3,9H5v2H3a1,1,0,0,0,0,2H5v2H3a1,1,0,0,0,0,2H5.18A3,3,0,0,0,7,18.82V21a1,1,0,0,0,2,0V19h2v2a1,1,0,0,0,2,0V19h2v2a1,1,0,0,0,2,0V18.82A3,3,0,0,0,18.82,17H21a1,1,0,0,0,0-2H19V13Zm-4,3a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8A1,1,0,0,1,8,7h8a1,1,0,0,1,1,1Z"
-                        ></path></g
-                    ></svg
-                >
+                <N8n />
                 <span>n8n</span>
             </div>
         </div>
 
         <div class="card">
             <div class="img-with-text">
-                <svg
-                    fill="#ffffff"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    stroke="#ffffff"
-                    stroke-width="0.168"
-                    ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-                        id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
-                        <path
-                            d="M8.95305171,17.9846747 C8.72737466,19.1334216 7.71488744,20 6.5,20 L4.5,20 C4.22385763,20 4,19.7761424 4,19.5 L4,17.5 C4,16.2851126 4.86657841,15.2726253 6.0153253,15.0469483 L6.02714614,14.7041437 C6.04713299,14.1245251 6.10682628,13.555636 6.20352226,13 L2.5,13 C2.1462677,13 1.90438878,12.6427369 2.03576165,12.3143047 L4.03576165,7.31430466 C4.11169333,7.12447547 4.29554771,7 4.5,7 L9,7 C9.02538451,7 9.05032719,7.00189166 9.07469478,7.0055417 C11.4290981,4.32146349 14.9247139,2.67696313 18.771296,2.80960389 C19.3819666,2.8306615 19.9902263,2.89709634 20.5910446,3.008359 C20.7946429,3.04606238 20.9539376,3.20535713 20.991641,3.40895537 C21.812186,7.83989855 20.1522623,12.1558183 16.9947249,14.9271075 C16.9982004,14.9509022 17,14.9752409 17,15 L17,19.5 C17,19.7044523 16.8755245,19.8883067 16.6856953,19.9642383 L11.6856953,21.9642383 C11.3572631,22.0956112 11,21.8537323 11,21.5 L11,17.7949378 C10.4368132,17.8936903 9.86739064,17.9531458 9.29585627,17.9728539 L8.95305171,17.9846747 Z M7.98749247,17.6945992 L6.30540075,16.0125075 C5.56890748,16.1079151 5,16.7375198 5,17.5 L5,19 L6.5,19 C7.26248018,19 7.8920849,18.4310925 7.98749247,17.6945992 L7.98749247,17.6945992 Z M12,17.5770127 L12,20.7614835 L16,19.1614835 L16,15.7132231 C14.8178863,16.5520811 13.4713529,17.1925443 12,17.5770127 L12,17.5770127 Z M6.42079004,12 C6.80202391,10.5414825 7.44257093,9.19144113 8.28872675,8 L4.83851648,8 L3.23851648,12 L6.42079004,12 L6.42079004,12 Z M8.69991595,16.9928092 L9.26139399,16.9734479 C9.82252402,16.9540985 10.3814387,16.8930532 10.9335157,16.7908167 C16.9701904,15.672914 20.9957193,9.95997934 20.0664857,3.93363717 C19.626205,3.86599452 19.1822172,3.82436794 18.7368337,3.80900989 C12.4850041,3.59342956 7.24213247,8.48677642 7.02655214,14.738606 L7.00719083,15.300084 L8.69991595,16.9928092 Z M14,13 C12.3431458,13 11,11.6568542 11,10 C11,8.34314575 12.3431458,7 14,7 C15.6568542,7 17,8.34314575 17,10 C17,11.6568542 15.6568542,13 14,13 Z M14,12 C15.1045695,12 16,11.1045695 16,10 C16,8.8954305 15.1045695,8 14,8 C12.8954305,8 12,8.8954305 12,10 C12,11.1045695 12.8954305,12 14,12 Z"
-                        ></path>
-                    </g></svg
-                >
+                <Dokploy />
                 <span>Dokploy</span>
             </div>
         </div>
@@ -347,47 +251,7 @@ const yearsOfExperience = (currentYear - 2021).toString();
         <div class="card">
             <div class="text-with-percent">
                 <div class="head">
-                    <svg
-                        viewBox="-1 0 20 20"
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        fill="#ffffff"
-                        stroke="#ffffff"
-                        ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-                            id="SVGRepo_tracerCarrier"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"></g><g
-                            id="SVGRepo_iconCarrier"
-                        >
-                            <title>html [#ffffff]</title>
-                            <desc>Created with Sketch.</desc>
-                            <defs> </defs>
-                            <g
-                                id="Page-1"
-                                stroke-width="0.2"
-                                fill="none"
-                                fill-rule="evenodd"
-                            >
-                                <g
-                                    id="Dribbble-Light-Preview"
-                                    transform="translate(-61.000000, -7639.000000)"
-                                    fill="#ffffff"
-                                >
-                                    <g
-                                        id="icons"
-                                        transform="translate(56.000000, 160.000000)"
-                                    >
-                                        <path
-                                            d="M19.4350881,7485 L19.4279481,7485 L10.8119794,7485 L11.0180201,7487 L19.2300674,7487 C19.109707,7488.752 18.7455658,7492.464 18.6119454,7494.153 L13.99949,7495.451 L13.99949,7495.455 L13.98929,7495.46 L9.37377458,7493.836 L9.05757353,7490 L11.3199411,7490 L11.4800816,7492.063 L13.99337,7493 L13.99949,7493 L16.5086984,7492.1 L16.7667592,7489 L8.95659319,7489 C8.91885306,7488.599 8.43333144,7483.392 8.34867116,7483 L19.6370488,7483 C19.5738086,7483.66 19.5095484,7484.338 19.4350881,7485 L19.4350881,7485 Z M5,7479 L6.63812546,7497.148 L13.98929,7499 L21.3598345,7497.111 L23,7479 L5,7479 Z"
-                                            id="html-[#ffffff]"
-                                        >
-                                        </path>
-                                    </g>
-                                </g>
-                            </g>
-                        </g>
-                    </svg>
+                    <Html />
                     <h3>HTML</h3>
                 </div>
 
@@ -398,53 +262,223 @@ const yearsOfExperience = (currentYear - 2021).toString();
         <div class="card">
             <div class="text-with-percent">
                 <div class="head">
-                    <svg
-                        fill="#ffffff"
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 0 512 512"
-                        enable-background="new 0 0 512 512"
-                        xml:space="preserve"
-                        stroke="#ffffff"
-                        stroke-width="5.12"
-                        ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-                            id="SVGRepo_tracerCarrier"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"></g><g
-                            id="SVGRepo_iconCarrier"
-                        >
-                            <g id="c133de6af664cd4f011a55de6b001b19">
-                                <path
-                                    display="inline"
-                                    d="M483.111,0.501l-42.59,461.314l-184.524,49.684L71.47,461.815L28.889,0.501H483.111z M397.29,94.302 H255.831H111.866l6.885,55.708h137.08h7.7l-7.7,3.205l-132.07,55.006l4.38,54.453l127.69,0.414l68.438,0.217l-4.381,72.606 l-64.058,18.035v-0.057l-0.525,0.146l-61.864-15.617l-3.754-45.07h-0.205H132.1h-0.202l7.511,87.007l116.423,34.429v-0.062 l0.21,0.062l115.799-33.802l15.021-172.761h-131.03h-0.323l0.323-0.14l135.83-58.071L397.29,94.302z"
-                                >
-                                </path>
-                            </g>
-                        </g></svg
-                    >
+                    <Css />
                     <h3>CSS</h3>
                 </div>
 
                 <div class="progress" data-value="70"></div>
             </div>
         </div>
+
+        <div class="card">
+            <div class="text-with-percent">
+                <div class="head">
+                    <JavaScript />
+                    <h3>JavaScript</h3>
+                </div>
+
+                <div class="progress" data-value="80"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="text-with-percent">
+                <div class="head">
+                    <TypeScript />
+                    <h3>TypeScript</h3>
+                </div>
+
+                <div class="progress" data-value="70"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="text-with-percent">
+                <div class="head">
+                    <Dart />
+                    <h3>Dart</h3>
+                </div>
+
+                <div class="progress" data-value="65"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="text-with-percent">
+                <div class="head">
+                    <Flutter />
+                    <h3>Flutter</h3>
+                </div>
+
+                <div class="progress" data-value="60"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="text-with-percent">
+                <div class="head">
+                    <Php />
+                    <h3>PHP</h3>
+                </div>
+
+                <div class="progress" data-value="80"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="text-with-percent">
+                <div class="head">
+                    <Python />
+                    <h3>Python</h3>
+                </div>
+
+                <div class="progress" data-value="50"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="text-with-percent">
+                <div class="head">
+                    <React />
+                    <h3>React</h3>
+                </div>
+
+                <div class="progress" data-value="60"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="text-with-percent">
+                <div class="head">
+                    <Angular />
+                    <h3>Angular</h3>
+                </div>
+
+                <div class="progress" data-value="70"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="text-with-percent">
+                <div class="head">
+                    <Nestjs />
+                    <h3>NestJs</h3>
+                </div>
+
+                <div class="progress" data-value="65"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="text-with-percent">
+                <div class="head">
+                    <Sql />
+                    <h3>SQL</h3>
+                </div>
+
+                <div class="progress" data-value="75"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="text-with-percent">
+                <div class="head">
+                    <Firebase />
+                    <h3>Firebase</h3>
+                </div>
+
+                <div class="progress" data-value="65"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="text-with-percent">
+                <div class="head">
+                    <MongoDb />
+                    <h3>MongoDB</h3>
+                </div>
+
+                <div class="progress" data-value="80"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="text-with-percent">
+                <div class="head">
+                    <Laravel />
+                    <h3>Laravel</h3>
+                </div>
+
+                <div class="progress" data-value="60"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="text-with-percent">
+                <div class="head">
+                    <Symfony />
+                    <h3>Symfony</h3>
+                </div>
+
+                <div class="progress" data-value="70"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="text-with-percent">
+                <div class="head">
+                    <Tailwind />
+                    <h3>Tailwind</h3>
+                </div>
+
+                <div class="progress" data-value="73"></div>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- PROYECTOS -->
-<section class="proyectos" id="proyectos">
+<!-- <section class="proyectos" id="proyectos">
     <h2 class="tittle">Proyectos</h2>
-</section>
+</section> -->
 
 <!-- CLIENTES -->
-<section class="clientes" id="clientes">
+<!-- <section class="clientes" id="clientes">
     <h2 class="tittle">Clientes</h2>
-</section>
+</section> -->
 
 <!-- CONTACTO -->
 <section class="contacto" id="contacto">
     <h2 class="tittle">Contactame</h2>
+
+    <form class="animateInside" autocomplete="new-user-form">
+
+        <div class="input-group">
+            <div class="field">
+                <label for="name">Nombre completo</label>
+                <input type="text" id="name" name="name" placeholder="Nombre completo"  autocomplete="new-user-name"/>
+            </div>
+
+            <div class="field">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" placeholder="Correo electrónico"  autocomplete="new-user-email"/>
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="message">Escribe tu mensaje...</label>
+            <textarea name="message" id="message" placeholder="Escribe tu mensaje..." value="" cols="30" rows="10" autocomplete="new-user-message"></textarea>
+        </div>
+
+        <div class="align-right">
+            <button type="submit" class="btn">
+                Enviar
+                <!-- <div class="spinner"></div> -->
+            </button>
+        </div>
+    
+    </form>
+
 </section>
 
 <!-- FOOTER -->
@@ -456,46 +490,7 @@ const yearsOfExperience = (currentYear - 2021).toString();
             rel="noopener noreferrer"
             title="GitHub"
         >
-            <svg
-                viewBox="0 0 20 20"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                fill="#ffffff"
-                stroke="#ffffff"
-                ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-                    id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
-                    <title>github [#ffffff]</title>
-                    <desc>Created with Sketch.</desc>
-                    <defs> </defs>
-                    <g
-                        id="Page-1"
-                        stroke="none"
-                        stroke-width="1"
-                        fill="none"
-                        fill-rule="evenodd"
-                    >
-                        <g
-                            id="Dribbble-Light-Preview"
-                            transform="translate(-140.000000, -7559.000000)"
-                            fill="#ffffff"
-                        >
-                            <g
-                                id="icons"
-                                transform="translate(56.000000, 160.000000)"
-                            >
-                                <path
-                                    d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399"
-                                    id="github-[#ffffff]"
-                                >
-                                </path>
-                            </g>
-                        </g>
-                    </g>
-                </g></svg
-            >
+            <GitHub />
         </a>
 
         <a
@@ -504,22 +499,7 @@ const yearsOfExperience = (currentYear - 2021).toString();
             rel="noopener noreferrer"
             title="LinkedIn"
         >
-            <svg
-                fill="#ffffff"
-                viewBox="0 0 32 32"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="#ffffff"
-                ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-                    id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
-                    <title>linkedin</title>
-                    <path
-                        d="M28.778 1.004h-25.56c-0.008-0-0.017-0-0.027-0-1.199 0-2.172 0.964-2.186 2.159v25.672c0.014 1.196 0.987 2.161 2.186 2.161 0.010 0 0.019-0 0.029-0h25.555c0.008 0 0.018 0 0.028 0 1.2 0 2.175-0.963 2.194-2.159l0-0.002v-25.67c-0.019-1.197-0.994-2.161-2.195-2.161-0.010 0-0.019 0-0.029 0h0.001zM9.9 26.562h-4.454v-14.311h4.454zM7.674 10.293c-1.425 0-2.579-1.155-2.579-2.579s1.155-2.579 2.579-2.579c1.424 0 2.579 1.154 2.579 2.578v0c0 0.001 0 0.002 0 0.004 0 1.423-1.154 2.577-2.577 2.577-0.001 0-0.002 0-0.003 0h0zM26.556 26.562h-4.441v-6.959c0-1.66-0.034-3.795-2.314-3.795-2.316 0-2.669 1.806-2.669 3.673v7.082h-4.441v-14.311h4.266v1.951h0.058c0.828-1.395 2.326-2.315 4.039-2.315 0.061 0 0.121 0.001 0.181 0.003l-0.009-0c4.5 0 5.332 2.962 5.332 6.817v7.855z"
-                    ></path>
-                </g></svg
-            >
+            <Linkedin />
         </a>
     </div>
 

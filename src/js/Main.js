@@ -129,6 +129,96 @@ const progressAnimation = () => {
 
 }
 
+const inputsAnimation = () => {
+
+    const inputs = document.querySelectorAll("input, textarea");
+
+    inputs.forEach(input => {
+
+        const label = input.parentNode.querySelector("label")
+
+        input.addEventListener("focus", () => {
+            label.classList.remove("onBlur");
+            label.classList.add("onFocus");
+
+            input.classList.add("hidePlaceholder");
+        });
+
+        input.addEventListener("blur", () => {
+
+            if (input.value === "") {
+
+                label.classList.remove("onFocus");
+                label.classList.add("onBlur");
+
+                label.addEventListener("animationend", () => {
+                    label.classList.remove("onBlur");
+
+                    if (!label.classList.contains("onFocus")) {
+                        input.classList.remove("hidePlaceholder");
+                    }
+
+                });
+
+            }
+
+        });
+
+    });
+
+}
+
+const onSubmitFrm = () => {
+
+    const frm = document.querySelector("form");
+
+
+
+    frm.addEventListener("submit", (e) => {
+
+        e.preventDefault();
+
+        const promises = [];
+        
+        const inputs = frm.querySelectorAll("input, textarea");
+
+        inputs.forEach(input => {
+
+            input.classList.remove("error");
+
+            promises.push(new Promise((resolve, reject) => {
+
+                setTimeout(() => {
+                    if (input.value === "") {
+
+                        input.classList.add("error");
+
+                        input.addEventListener("focus", () => {
+                            input.classList.remove("error");
+                        });
+
+                        reject();
+
+                    } else {
+
+                        resolve();
+
+                    }
+                })
+
+            }))
+
+        });
+
+        Promise.all(promises)
+            .then(() => {
+                alert("El envio aún se encuentra en desarrollo. Por favor, intenta contactarme a través de mis redes sociales. ¡Gracias!");
+            })
+            .catch(() => {})
+    })
+
+}
+
 // EVENTOS
 document.addEventListener("scroll", onScroll);
 
@@ -136,5 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
     typeEffect();
     toggleMenu();
     progressAnimation();
+    inputsAnimation();
+    onSubmitFrm();
     onScroll(); // Se añade para que al recargar la página en una posición diferente a la inicial
 });
