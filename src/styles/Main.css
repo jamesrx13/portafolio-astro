@@ -336,6 +336,44 @@ h3.subtittle {
     justify-content: center;
 }
 
+.alert {
+    width: 100%;
+    min-height: 70px;
+    border: 1px solid white;
+    max-width: 700px;
+    border-radius: 5px;
+    padding: 1rem;
+    align-items: center;
+    color: white !important;
+    margin: 1rem auto;
+    display: none;
+
+    svg {
+        width: 40px;
+        height: auto;
+        margin-right: 10px;
+    }
+
+    &.info {
+        background: rgba(0, 123, 255, 0.1);
+        border-color: var(--main-color);
+        color: var(--main-color);
+        display: flex;
+    }
+
+    &.error {
+        background: rgba(255, 0, 0, 0.1);
+        border-color: rgba(255, 0, 0, 0.336);
+        color: rgba(255, 0, 0, 0.836);
+        display: flex;
+    }
+
+    &.onHide {
+        animation: onAlertHide .5s forwards;
+    }
+
+}
+
 .spinner {
     width: 20px;
     height: 20px;
@@ -635,6 +673,7 @@ section.contacto {
             width: 100%;
             display: flex;
             justify-content: flex-end;
+            gap: 1rem;
         }
 
 
@@ -821,5 +860,17 @@ section.contacto {
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes onAlertHide {
+    0% {
+        opacity: 1;
+        transform: rotate3d(0, 0, 0, 0deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate3d(1, 0, 0, 90deg);
     }
 }

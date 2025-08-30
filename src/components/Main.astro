@@ -25,6 +25,7 @@ import Tailwind from "../icons/Tailwind.astro";
 import React from "../icons/React.astro";
 import Nestjs from "../icons/Nestjs.astro";
 import Angular from "../icons/Angular.astro";
+import Info from "../icons/Info.astro";
 
 const currentYear = new Date().getFullYear();
 const yearsOfExperience = (currentYear - 2021).toString();
@@ -470,10 +471,14 @@ const yearsOfExperience = (currentYear - 2021).toString();
             <textarea name="message" id="message" placeholder="Escribe tu mensaje..." value="" cols="30" rows="10" autocomplete="new-user-message"></textarea>
         </div>
 
+        <div class="alert" id="alert-message">
+            <Info/>
+            <span></span>
+        </div>
+
         <div class="align-right">
-            <button type="submit" class="btn">
+            <button type="submit" class="btn" id="send-message-btn">
                 Enviar
-                <!-- <div class="spinner"></div> -->
             </button>
         </div>
     

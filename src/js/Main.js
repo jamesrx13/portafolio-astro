@@ -129,6 +129,21 @@ const progressAnimation = () => {
 
 }
 
+const hideAlert = () => {
+
+    const alertBox = document.getElementById("alert-message");
+
+    alertBox.classList.add("onHide");
+
+    alertBox.addEventListener("animationend", () => {
+        alertBox.classList.remove("onHide");
+        alertBox.classList.remove("info");
+        alertBox.classList.remove("error");
+        alertBox.querySelector("span").textContent = "";
+    })
+
+}
+
 const inputsAnimation = () => {
 
     const inputs = document.querySelectorAll("input, textarea");
@@ -168,19 +183,85 @@ const inputsAnimation = () => {
 
 }
 
+const sendMessage = async (data) => {
+
+    try {
+
+        const _url = "https://api.jamesrudas.com/api/send-message"
+
+        const btn = document.getElementById("send-message-btn");
+        const alertBox = document.getElementById("alert-message");
+        const frm = document.querySelector("form");
+
+        btn.disabled = true;
+
+        btn.innerHTML = `<div class="spinner"></div>`
+
+        const _response = await fetch(_url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (_response.ok) {
+
+            alertBox.classList.remove("error");
+            alertBox.classList.add("info");
+            alertBox.querySelector("span").textContent = "¡Hola! he recibido tu mensaje y me pondré en contacto contigo lo antes posible. Gracias por contactarme.";
+
+            frm.reset();
+
+            frm.querySelectorAll("input, textarea").forEach(e => {
+                e.dispatchEvent(new Event('blur'));
+            });
+
+        } else {
+            alertBox.classList.remove("info");
+            alertBox.classList.add("error");
+            alertBox.querySelector("span").textContent = "¡Vaya! ha ocurrido un error inesperado. Por favor, inténtalo de nuevo más tarde.";
+        }
+
+        btn.textContent = "Enviar";
+        btn.disabled = false;
+
+        setTimeout(() => {
+            hideAlert();
+        }, 5000)
+
+    } catch (error) {
+        const alertBox = document.getElementById("alert-message");
+        const btn = document.getElementById("send-message-btn");
+
+        alertBox.classList.remove("info");
+        alertBox.classList.add("error");
+        alertBox.querySelector("span").textContent = "¡Vaya! ha ocurrido un error inesperado. Por favor, inténtalo de nuevo más tarde.";
+
+        btn.textContent = "Enviar";
+        btn.disabled = false;
+
+        setTimeout(() => {
+            hideAlert();
+        }, 5000)
+
+    }
+
+}
+
 const onSubmitFrm = () => {
 
     const frm = document.querySelector("form");
-
-
 
     frm.addEventListener("submit", (e) => {
 
         e.preventDefault();
 
         const promises = [];
-        
+
         const inputs = frm.querySelectorAll("input, textarea");
+
+        const dataToSend = {}
 
         inputs.forEach(input => {
 
@@ -201,6 +282,8 @@ const onSubmitFrm = () => {
 
                     } else {
 
+                        dataToSend[input.name] = input.value;
+
                         resolve();
 
                     }
@@ -212,9 +295,9 @@ const onSubmitFrm = () => {
 
         Promise.all(promises)
             .then(() => {
-                alert("El envio aún se encuentra en desarrollo. Por favor, intenta contactarme a través de mis redes sociales. ¡Gracias!");
+                sendMessage(dataToSend);
             })
-            .catch(() => {})
+            .catch(() => { })
     })
 
 }
