@@ -172,6 +172,7 @@ section {
 }
 
 section:not(.principal) {
+    scroll-margin-top:4.375rem;
     @media screen and (max-width: 1000px) {
         margin-bottom: 3rem;
     }
