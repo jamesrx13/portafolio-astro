@@ -450,7 +450,13 @@ const yearsOfExperience = (currentYear - 2021).toString();
 <section class="contacto" id="contacto">
     <h2 class="tittle">Contáctame</h2>
 
-    <form class="animateInside" autocomplete="new-user-form">
+    <form
+        id="contact-form"
+        class="animateInside"
+        method="post"
+        action="/api/contact"
+        novalidate
+    >
         <div class="input-group">
             <div class="field">
                 <label for="name">Nombre completo</label>
@@ -459,7 +465,9 @@ const yearsOfExperience = (currentYear - 2021).toString();
                     id="name"
                     name="name"
                     placeholder="Nombre completo"
-                    autocomplete="new-user-name"
+                    autocomplete="name"
+                    maxlength="80"
+                    required
                 />
             </div>
 
@@ -470,9 +478,24 @@ const yearsOfExperience = (currentYear - 2021).toString();
                     id="email"
                     name="email"
                     placeholder="Correo electrónico"
-                    autocomplete="new-user-email"
+                    autocomplete="email"
+                    maxlength="254"
+                    required
                 />
             </div>
+        </div>
+
+        <div class="field">
+            <label for="subject">Asunto</label>
+            <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="Asunto"
+                autocomplete="off"
+                maxlength="120"
+                required
+            />
         </div>
 
         <div class="field">
@@ -481,13 +504,26 @@ const yearsOfExperience = (currentYear - 2021).toString();
                 name="message"
                 id="message"
                 placeholder="Escribe tu mensaje..."
-                value=""
                 cols="30"
                 rows="10"
-                autocomplete="new-user-message"></textarea>
+                maxlength="5000"
+                required
+            ></textarea>
         </div>
 
-        <div class="alert" id="alert-message">
+        <div class="honeypot" aria-hidden="true">
+            <label for="leave_blank">No completar este campo</label>
+            <input
+                type="text"
+                id="leave_blank"
+                name="leave_blank"
+                tabindex="-1"
+                autocomplete="off"
+                value=""
+            />
+        </div>
+
+        <div class="alert" id="alert-message" role="status" aria-live="polite">
             <Info />
             <span></span>
         </div>

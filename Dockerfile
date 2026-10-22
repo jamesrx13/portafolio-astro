@@ -1,29 +1,28 @@
-# Etapa 1: Build de Astro
-FROM node:18-alpine AS build
+# Etapa 1: build de Astro (páginas estáticas + servidor Node)
+FROM node:22-alpine AS build
 
 WORKDIR /app
 
-# Copiamos dependencias primero
-COPY package*.json ./
-RUN npm install
+COPY package.json package-lock.json ./
+RUN npm ci
 
-# Copiamos el resto del proyecto
 COPY . .
-
-# Generamos la build estática
 RUN npm run build
 
-# Etapa 2: Producción con Nginx
-FROM nginx:alpine
+# Etapa 2: servidor Node. Dokploy publica el puerto 80.
+FROM node:22-alpine AS runtime
 
-# Borramos archivos default de Nginx
-RUN rm -rf /usr/share/nginx/html/*
+WORKDIR /app
 
-# Copiamos SOLO la carpeta dist generada por Astro
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev && npm cache clean --force
 
-# Exponemos el puerto
+COPY --from=build /app/dist ./dist
+
+ENV NODE_ENV=production
+ENV HOST=0.0.0.0
+ENV PORT=80
+
 EXPOSE 80
 
-# Iniciamos Nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["node", "./dist/server/entry.mjs"]
