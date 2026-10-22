@@ -201,6 +201,11 @@ section:not(.principal) {
             border-bottom-color: transparent;
         }
     }
+
+    &:disabled {
+        cursor: wait;
+        opacity: 0.75;
+    }
 }
 
 h2.tittle {
@@ -345,7 +350,7 @@ h3.subtittle {
     border-radius: 5px;
     padding: 1rem;
     align-items: center;
-    color: white !important;
+    color: white;
     margin: 1rem auto;
     display: none;
 
@@ -366,6 +371,13 @@ h3.subtittle {
         background: rgba(255, 0, 0, 0.1);
         border-color: rgba(255, 0, 0, 0.336);
         color: rgba(255, 0, 0, 0.836);
+        display: flex;
+    }
+
+    &.success {
+        background: rgba(0, 180, 90, 0.12);
+        border-color: rgba(80, 220, 140, 0.75);
+        color: rgb(190, 255, 214);
         display: flex;
     }
 
@@ -675,6 +687,24 @@ section.contacto {
             display: flex;
             justify-content: flex-end;
             gap: 1rem;
+        }
+
+        .honeypot {
+            position: absolute;
+            left: -10000px;
+            top: 0;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .honeypot input {
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            opacity: 0;
         }
 
 

@@ -6,9 +6,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "start": "node ./dist/server/entry.mjs",
+    "test": "node --experimental-strip-types --test tests/contact.test.ts",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.13.3"
+    "@astrojs/node": "9.4.4",
+    "astro": "^5.13.3",
+    "nodemailer": "^10.2.0"
   }
 }

@@ -1,3 +1,5 @@
+import { validateContact } from "../lib/contact.ts";
+
 // VARIABLES
 const roles = [
     "Desarrollador Fullstack",
@@ -129,9 +131,20 @@ const progressAnimation = () => {
 
 }
 
+let alertTimer = null;
+let sending = false;
+
 const hideAlert = () => {
 
     const alertBox = document.getElementById("alert-message");
+
+    if (
+        !alertBox.classList.contains("info") &&
+        !alertBox.classList.contains("error") &&
+        !alertBox.classList.contains("success")
+    ) {
+        return;
+    }
 
     alertBox.classList.add("onHide");
 
@@ -139,8 +152,78 @@ const hideAlert = () => {
         alertBox.classList.remove("onHide");
         alertBox.classList.remove("info");
         alertBox.classList.remove("error");
+        alertBox.classList.remove("success");
         alertBox.querySelector("span").textContent = "";
-    })
+    }, { once: true });
+
+}
+
+const showAlert = (kind, message) => {
+
+    const alertBox = document.getElementById("alert-message");
+
+    alertBox.classList.remove("onHide", "info", "error", "success");
+    alertBox.classList.add(kind);
+    alertBox.querySelector("span").textContent = message;
+
+    if (alertTimer) clearTimeout(alertTimer);
+
+    alertTimer = setTimeout(() => {
+        hideAlert();
+    }, 7000);
+
+}
+
+const safeErrorMessage = (payload) => {
+
+    const fallback = "¡Vaya! ha ocurrido un error inesperado. Por favor, inténtalo de nuevo más tarde.";
+
+    if (!payload || typeof payload.error !== "string") return fallback;
+
+    const message = payload.error.trim();
+
+    if (!message || message.length > 240) return fallback;
+
+    return message;
+
+}
+
+const applyFieldErrors = (frm, fields) => {
+
+    if (!fields) return;
+
+    Object.entries(fields).forEach(([name, message]) => {
+
+        if (!message) return;
+
+        const field = frm.querySelector(`[name="${name}"]`);
+
+        if (!field) return;
+
+        field.classList.add("error");
+        field.setAttribute("aria-invalid", "true");
+
+        field.addEventListener("focus", () => {
+            field.classList.remove("error");
+            field.removeAttribute("aria-invalid");
+        }, { once: true });
+
+    });
+
+}
+
+const setSending = (isSending) => {
+
+    const btn = document.getElementById("send-message-btn");
+
+    btn.disabled = isSending;
+    btn.setAttribute("aria-busy", isSending ? "true" : "false");
+
+    if (isSending) {
+        btn.innerHTML = `<span class="spinner" role="status" aria-label="Enviando"></span>`;
+    } else {
+        btn.textContent = "Enviar";
+    }
 
 }
 
@@ -150,7 +233,11 @@ const inputsAnimation = () => {
 
     inputs.forEach(input => {
 
-        const label = input.parentNode.querySelector("label")
+        if (input.name === "leave_blank") return;
+
+        const label = input.parentNode.querySelector("label");
+
+        if (!label) return;
 
         input.addEventListener("focus", () => {
             label.classList.remove("onBlur");
@@ -185,65 +272,59 @@ const inputsAnimation = () => {
 
 const sendMessage = async (data) => {
 
+    if (sending) return;
+
+    sending = true;
+    const frm = document.getElementById("contact-form");
+
     try {
 
-        const _url = "https://api.jamesrudas.com/api/send-message"
+        setSending(true);
 
-        const btn = document.getElementById("send-message-btn");
-        const alertBox = document.getElementById("alert-message");
-        const frm = document.querySelector("form");
-
-        btn.disabled = true;
-
-        btn.innerHTML = `<div class="spinner"></div>`
-
-        const _response = await fetch(_url, {
+        const response = await fetch("/api/contact", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Accept": "application/json",
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
         });
 
-        if (_response.ok) {
+        let payload = {};
 
-            alertBox.classList.remove("error");
-            alertBox.classList.add("info");
-            alertBox.querySelector("span").textContent = "¡Hola! he recibido tu mensaje y me pondré en contacto contigo lo antes posible. Gracias por contactarme.";
+        try {
+            payload = await response.json();
+        } catch {
+            payload = {};
+        }
+
+        if (response.ok && payload.ok) {
+
+            showAlert("success", "¡Hola! he recibido tu mensaje y me pondré en contacto contigo lo antes posible. Gracias por contactarme.");
 
             frm.reset();
 
-            frm.querySelectorAll("input, textarea").forEach(e => {
-                e.dispatchEvent(new Event('blur'));
+            frm.querySelectorAll("input, textarea").forEach((field) => {
+                field.classList.remove("error");
+                field.removeAttribute("aria-invalid");
+                field.dispatchEvent(new Event("blur"));
             });
 
-        } else {
-            alertBox.classList.remove("info");
-            alertBox.classList.add("error");
-            alertBox.querySelector("span").textContent = "¡Vaya! ha ocurrido un error inesperado. Por favor, inténtalo de nuevo más tarde.";
+            return;
+
         }
 
-        btn.textContent = "Enviar";
-        btn.disabled = false;
-
-        setTimeout(() => {
-            hideAlert();
-        }, 5000)
+        applyFieldErrors(frm, payload.fields);
+        showAlert("error", safeErrorMessage(payload));
 
     } catch (error) {
-        const alertBox = document.getElementById("alert-message");
-        const btn = document.getElementById("send-message-btn");
 
-        alertBox.classList.remove("info");
-        alertBox.classList.add("error");
-        alertBox.querySelector("span").textContent = "¡Vaya! ha ocurrido un error inesperado. Por favor, inténtalo de nuevo más tarde.";
+        showAlert("error", "¡Vaya! ha ocurrido un error inesperado. Por favor, inténtalo de nuevo más tarde.");
 
-        btn.textContent = "Enviar";
-        btn.disabled = false;
+    } finally {
 
-        setTimeout(() => {
-            hideAlert();
-        }, 5000)
+        sending = false;
+        setSending(false);
 
     }
 
@@ -251,54 +332,37 @@ const sendMessage = async (data) => {
 
 const onSubmitFrm = () => {
 
-    const frm = document.querySelector("form");
+    const frm = document.getElementById("contact-form");
 
-    frm.addEventListener("submit", (e) => {
+    frm.addEventListener("submit", (event) => {
 
-        e.preventDefault();
+        event.preventDefault();
 
-        const promises = [];
+        const data = {};
 
-        const inputs = frm.querySelectorAll("input, textarea");
-
-        const dataToSend = {}
-
-        inputs.forEach(input => {
-
-            input.classList.remove("error");
-
-            promises.push(new Promise((resolve, reject) => {
-
-                setTimeout(() => {
-                    if (input.value === "") {
-
-                        input.classList.add("error");
-
-                        input.addEventListener("focus", () => {
-                            input.classList.remove("error");
-                        });
-
-                        reject();
-
-                    } else {
-
-                        dataToSend[input.name] = input.value;
-
-                        resolve();
-
-                    }
-                })
-
-            }))
-
+        frm.querySelectorAll("input, textarea").forEach((field) => {
+            field.classList.remove("error");
+            field.removeAttribute("aria-invalid");
+            data[field.name] = field.value;
         });
 
-        Promise.all(promises)
-            .then(() => {
-                sendMessage(dataToSend);
-            })
-            .catch(() => { })
-    })
+        const result = validateContact(data);
+
+        if (!result.ok) {
+            applyFieldErrors(frm, result.fields);
+            showAlert("error", result.error);
+            return;
+        }
+
+        sendMessage({
+            name: data.name ?? "",
+            email: data.email ?? "",
+            subject: data.subject ?? "",
+            message: data.message ?? "",
+            leave_blank: data.leave_blank ?? "",
+        });
+
+    });
 
 }
 
